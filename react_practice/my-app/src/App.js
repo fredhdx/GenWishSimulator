@@ -1,15 +1,22 @@
-//import logo from './logo.svg';
-import './App.css';
 import wish from './wish.webp';
-import WishDisplayCard from './wishDisplayCard';
+import React, { useState } from 'react';
+import './App.css';
 
-// this is jsx: babel converts any HTML tags into React.createElement() calls
+import WishDisplayCard from './WishDisplayCard';
+
+import Character from './Character';
+
+const makeWish = ()=>{
+  const banner = ['Banet', 'Ayato', 'Cyno', 'Diona', 'Xingqiu'];
+  return banner[Math.floor(Math.random() * (banner.length - 1))];
+}
+
 function App() {
-  // todo: update display
-  const makeWish = ()=>{
-    const banner = ['Banet', 'Ayato', 'Cyno', 'Diona', 'Xingqiu']
-    return banner[Math.floor(Math.random() * (banner.length - 1))]
-  }
+
+  // state hooks
+  const [currentWish, setCurrentWish] = useState(makeWish());
+
+  const handleWishButtonClick = () => { setCurrentWish(makeWish()); };
 
   const wishInputBox = <input type='text' placeholder='Dream here' autoComplete />
 
@@ -28,13 +35,11 @@ function App() {
           Launch Game
         </a>
 
-        <WishDisplayCard wish={makeWish()} />
-        <button onClick={makeWish}>Wish</button>
-
-        <p>
-          {wishInputBox}
-        </p>
+        <WishDisplayCard wish={currentWish} />
+        <button onClick={handleWishButtonClick}>Wish</button>
+        <p>{wishInputBox}</p>
       </header>
+      <Character />
     </div>
   );
 }
