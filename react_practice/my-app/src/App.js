@@ -2,24 +2,15 @@ import wish from './wish.webp';
 import React, { useState } from 'react';
 import './App.css';
 
-import WishDisplayCard from './WishDisplayCard';
-
+import WishCard from './WishCard'; // state class
 import Character from './Character';
 
-const makeWish = ()=>{
-  const banner = ['Banet', 'Ayato', 'Cyno', 'Diona', 'Xingqiu'];
-  return banner[Math.floor(Math.random() * (banner.length - 1))];
-}
-
 function App() {
-
   // state hooks
-  const [currentWish, setCurrentWish] = useState(makeWish());
-
-  const handleWishButtonClick = () => { setCurrentWish(makeWish()); };
+  // const [currentWish, setCurrentWish] = useState(makeWish());
+  // const handleWishButtonClick = () => { setCurrentWish(makeWish()); };
 
   const wishInputBox = <input type='text' placeholder='Dream here' autoComplete />
-
   return (
     // root level must be a single element
     <div className="App">
@@ -35,8 +26,7 @@ function App() {
           Launch Game
         </a>
 
-        <WishDisplayCard wish={currentWish} />
-        <button onClick={handleWishButtonClick}>Wish</button>
+        <WishCard/>
         <p>{wishInputBox}</p>
       </header>
       <Character />

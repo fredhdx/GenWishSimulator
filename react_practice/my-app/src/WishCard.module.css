@@ -1,11 +1,13 @@
-.WishDisplayCard {
+.WishCard {
   box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
   padding: 10px;
 }
 
+/**
 @media (min-width: 992px) {
-  .WishDisplayCard {
+  .WishCard {
     width: 45%;
     padding: 20px;
   }
 }
+**/
