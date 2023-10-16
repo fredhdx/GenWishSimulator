@@ -1,0 +1,15 @@
+.preview {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  display: grid;
+  color: white;
+  place-items: center;
+  font-size: 3rem;
+  top: -2%;
+  left: -1%;
+  width: 100%;
+  height: 100%;
+}

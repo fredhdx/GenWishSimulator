@@ -1,0 +1,19 @@
+.imgBox {
+  max-width: 100%;
+  max-height: 10vh;
+}
+
+.gridItem {
+  background-color: #efefef;
+  padding: 10px;
+  text-align: center;
+}
+
+.gridItemHighlight {
+  background-color: #efefef;
+  padding: 10px;
+  text-align: center;
+
+  border: black;
+  border-style: solid;
+}
