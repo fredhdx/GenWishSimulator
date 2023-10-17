@@ -53,3 +53,12 @@
   gap: 10px; /* Gap between grid items */
   width: 400px; /* Adjust the width as needed */
 }
+
+.split-pane-section {
+  text-align: left;
+}
+
+.right-pane div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

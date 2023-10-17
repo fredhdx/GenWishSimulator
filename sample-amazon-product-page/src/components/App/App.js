@@ -1,6 +1,5 @@
 import './App.css';
 import React, { Component } from 'react';
-import SplitPane, { Pane } from 'react-split-pane';
 
 // tailwind css
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -72,45 +71,43 @@ class App extends Component {
         <header className="App-header">
           <span>Amazon</span>
         </header>
-        <SplitPane split='vertical' minSize="50%">
-
-          <Pane>
-            <ProductPreview
-              imageUrl={this.state.colorOptions[this.state.selectedColor].imageUrl} 
-              selectedId={this.state.selectedFeature}>
-            </ProductPreview>
-          </Pane>
-
-          <Pane style={{ textAlign: 'left'}}>
-            <div><p className='Product-title'>{ProductData.title}</p></div>
-
-            <div><p>{ProductData.description}</p></div>
-
-            <div>
-              <p className='Product-title'>Select Color</p>
-              <div className='grid-container'>
-                {this.state.colorOptions.map((colorOption) => 
-                  (<ProductColorSelector
-                    id={colorOption.id}
-                    imageUrl={colorOption.imageUrl}
-                    styleName={colorOption.styleName} 
-                    selected={colorOption.selected}
-                    onClick={this.onColorClick} 
-                   />
-                ))}
-              </div>
+        <section class="split-pane-section">
+          <div class="grid h-screen grid-cols-2">
+            <div class="left-pane">
+              <ProductPreview
+                imageUrl={this.state.colorOptions[this.state.selectedColor].imageUrl} 
+                selectedId={this.state.selectedFeature}>
+              </ProductPreview>
             </div>
 
-            <div>
-              <p className='Product-title'>Features</p>
-              <div className='grid-container'>
-                <FeatureButton active={this.selectedFeature === 0} id={0} name={'Timer'} onClick={this.onFeatureClick}></FeatureButton>
-                <FeatureButton active={this.selectedFeature === 1} id={1} name={'Heart Rate'} onClick={this.onFeatureClick}></FeatureButton>
+            <div class="right-pane">
+              <div><p className='Product-title'>{ProductData.title}</p></div>
+              <div><p>{ProductData.description}</p></div>
+              <div>
+                <p className='Product-title'>Select Color</p>
+                <div className='grid-container'>
+                  {this.state.colorOptions.map((colorOption) => 
+                    (<ProductColorSelector
+                      id={colorOption.id}
+                      imageUrl={colorOption.imageUrl}
+                      styleName={colorOption.styleName} 
+                      selected={colorOption.selected}
+                      onClick={this.onColorClick} 
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className='Product-title'>Features</p>
+                <div className='grid-container'>
+                  <FeatureButton active={this.selectedFeature === 0} id={0} name={'Timer'} onClick={this.onFeatureClick}></FeatureButton>
+                  <FeatureButton active={this.selectedFeature === 1} id={1} name={'Heart Rate'} onClick={this.onFeatureClick}></FeatureButton>
+                </div>
               </div>
             </div>
-          </Pane>
-
-        </SplitPane>
+          </div>
+        </section>
       </div>
     );
 
